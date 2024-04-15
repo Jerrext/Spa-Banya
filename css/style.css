@@ -247,7 +247,6 @@ body {
   background-color: var(--color-1-1);
   max-width: 2520px;
   margin: 0 auto;
-  height: 4000px;
 }
 
 .container {
@@ -598,7 +597,7 @@ p > span {
 /* about  */
 
 .about {
-  padding-top: 60px;
+  margin-top: 60px;
 }
 
 .about__wrapper {
@@ -680,7 +679,8 @@ p > span {
 
 /* participants */
 
-.participants {
+.participants,
+.partners-sponsors {
   margin-top: 80px;
   padding: 60px 0;
   border-radius: 30px;
@@ -804,195 +804,53 @@ p > span {
   margin-top: 40px;
 }
 
-/*
-.gallery {
-  padding-top: 100px;
+/* referee */
+
+.referee {
+  margin-top: 80px;
 }
 
-.gallery__grid-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: clamp(10px, 1.25rem + 6px, 30px);
+/* laznya */
+
+.laznya {
+  margin-top: 80px;
 }
 
-.gallery__grid {
-  display: none;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: clamp(10px, 1.25rem + 6px, 30px);
+/* partners-sponsors */
+
+.partners-sponsors {
 }
 
-.gallery__grid-item {
-  position: relative;
-  border-radius: var(--radius);
-  overflow: hidden;
-  height: 330px;
+/* partners */
+
+.partners {
 }
 
-.gallery__grid-item::before {
-  content: "";
-  position: absolute;
-  opacity: 0;
-  width: 100%;
-  height: 100%;
-  transition: 0.3s;
-  backdrop-filter: blur(1px);
-  background-color: rgba(255, 255, 255, 0.3);
-  cursor: zoom-in;
+/* sponsors */
+
+.sponsors {
+  margin-top: 80px;
 }
 
-.gallery__grid-item::after {
-  content: "";
-  position: absolute;
-  background-image: url("../images/magnifier.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 30px;
-  height: 30px;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  transition: 0.3s;
-  cursor: zoom-in;
-  z-index: 100;
+/* volunteers */
+
+.volunteers {
+  margin-top: 80px;
 }
 
-.gallery__grid-item:hover::before,
-.gallery__grid-item:hover::after {
-  opacity: 1;
-}
-
-.gallery__grid:first-child {
-  display: grid;
-}
-
-.gallery__btns-wrapper {
-  display: flex;
-  justify-content: center;
-}
-
-.gallery button {
-  padding: 15px 20px;
-  border: 1px solid var(--primary-color);
-  border-radius: 30px;
-  color: var(--primary-color);
-  transition: 0.3s;
-  font-size: clamp(14px, 0.25rem + 13.2px, 18px);
-  margin-top: 30px;
-}
-
-.gallery button:hover {
-  background-color: var(--primary-color);
-  color: var(--white-color);
-}
-
-.gallery__btn-hide {
-  display: none;
-}
-
-contacts
+/* contacts */
 
 .contacts {
-  padding: 100px 0;
+  margin-top: 80px;
 }
 
-.contacts__map-wrapper {
-  position: relative;
-}
-
-.contacts__info {
-  position: absolute;
-  top: 0;
-  left: 90px;
-  max-width: 390px;
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-.contacts__info-item {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.contacts__info-item-title {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.contacts__info-item-descr {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.contacts__info svg {
-  width: clamp(20px, 0.625rem + 18px, 30px) !important;
-  height: clamp(20px, 0.625rem + 18px, 30px) !important;
-}
-
-.contacts__info a {
-  font-family: var(--roboto-font);
-  font-weight: 300;
-  font-size: clamp(14px, 0.25rem + 13.2px, 18px);
-  color: var(--text-color);
-  line-height: 1.3em;
-}
-
-.contacts__info a:hover {
-  text-decoration: underline;
-}
-
-.contacts__map {
-  height: 536px;
-}
-
-footer
+/* footer */
 
 .footer {
-  background-color: var(--secondary-bg-color);
-  padding: 30px 0;
+  height: 100px;
+  background-color: var(--text-color);
 }
-
-.footer__wrapper {
-  display: flex;
-  justify-content: end;
-  align-items: center;
-  position: relative;
-}
-
-.footer__company {
-  color: var(--white-color);
-  font-family: var(--montserrat-font);
-  font-weight: 600;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  position: absolute;
-  font-size: 22px;
-}
-
-.footer__right {
-  display: flex;
-  flex-direction: column;
-  align-items: end;
-  gap: 5px;
-}
-
-.footer__right a {
-  color: var(--white-color);
-  font-size: 14px;
-}
-
-.footer__right a:hover {
-  text-decoration: underline;
-}
-
+/*
 popup
 
 .popup {
