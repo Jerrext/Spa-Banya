@@ -91,9 +91,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Map
 
-  // const map = document.querySelector(".contacts__map iframe")
-  // map.style.width = "100%"
-  // map.style.height = "100%"
+  // const map = document.querySelector(".about__map iframe");
+  // map.style.width = "100%";
+  // map.style.height = "100%";
 
   // Services
 

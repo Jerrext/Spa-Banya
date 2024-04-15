@@ -143,7 +143,7 @@ button {
   box-sizing: border-box;
 }
 
-@font-face {
+/* @font-face {
   font-family: "Montserrat";
   src: url("../../fonts/Montserrat-SemiBold.eot");
   src: url("../../fonts/Montserrat-SemiBold.eot?#iefix") format("embedded-opentype"),
@@ -164,7 +164,7 @@ button {
     url("../../fonts/Montserrat-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
-  /* font-display: swap; */
+  font-display: swap;
 }
 
 @font-face {
@@ -189,7 +189,7 @@ button {
   font-weight: 400;
   font-style: normal;
   font-display: swap;
-}
+} */
 
 @font-face {
   font-family: "Roboto";
@@ -225,13 +225,13 @@ button {
 
   --color-1-1: #ffebd9;
   --color-1-2: rgba(253, 236, 221, 0.7);
-  --color-2: #fff7e8;
-  /* --color-3: #42313a; */
+  /* --color-2: #fff7e8; */
+  --color-3: #6c2d2c;
   --color-4: #9f4636;
   --white-color: #ffffff;
   --text-color: #42313a;
   --text-color-hover: #000;
-  --title-color: #46413a;
+  /* --title-color: #46413a; */
   /* --secondary-bg-color: #1a1c1f; */
   --montserrat-font: "Montserrat", sans-serif;
   --roboto-font: "Roboto", sans-serif;
@@ -279,16 +279,19 @@ h1 {
   color: var(--white-color);
   text-transform: uppercase;
 }
+*/
 
 h2 {
   text-align: center;
   font-family: var(--montserrat-font);
-  font-size: clamp(30px, 1.25rem + 26.25px, 50px);
+  font-size: 50px;
   font-weight: 700;
   text-transform: uppercase;
-  color: var(--title-color);
+  color: var(--text-color);
   margin-bottom: 30px;
 }
+
+/*
 
 h3 {
   font-family: var(--montserrat-font);
@@ -310,14 +313,19 @@ img {
   height: 100%;
 }
 
-/* p {
+p {
   font-family: var(--roboto-font);
-  font-weight: 300;
-  font-size: clamp(14px, 0.25rem + 13.2px, 18px);
+  font-weight: 400;
+  font-size: 18px;
   color: var(--text-color);
-  line-height: 1.5em;
+  /* line-height: 1.5em; */
 }
 
+svg path {
+  fill: var(--color-4);
+}
+
+/* 
 p > span {
   font-weight: 400;
   color: #000;
@@ -549,13 +557,11 @@ p > span {
   transform: translate(-50%, calc(-50% + 50px));
 }
 
-.banner__text {
-}
-
 .banner h1,
 .banner p,
 .banner a {
   font-family: var(--montserrat-font);
+  color: var(--white-color);
 }
 
 .banner__date {
@@ -576,95 +582,95 @@ p > span {
   margin: 60px 0 20px;
 }
 
-.banner__partner {
+.banner .banner__partner {
   color: #05a9b7;
   font-weight: 700;
   font-size: 35px;
 }
 
-/* 
-.banner {
-  position: relative;
-}
-
-.banner__swiper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-}
-
-.banner__swiper-pagination {
-  position: absolute;
-  bottom: 30px !important;
-  left: unset !important;
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-.banner__swiper-pagination .swiper-pagination-bullet {
-  width: 25px;
-  height: 5px;
-  background-color: var(--white-color);
-  border-radius: 0;
-  margin: 0 !important;
-  opacity: 1 !important;
-}
-
-.banner__swiper-pagination .swiper-pagination-bullet-active {
-  background-color: var(--primary-color);
-}
-
-.banner__swiper .swiper-slide {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-}
-
-.banner__bg {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: 90% 50%;
-  background-repeat: no-repeat;
-  z-index: -1;
-}
-
-.banner__bg::before {
-  content: "";
-  width: 100%;
-  height: 100%;
-  background-color: #000000;
-  opacity: 0.2;
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-
-.banner__wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: clamp(20px, 1.875rem + 14px, 50px);
-}
-
-about 
+/* about  */
 
 .about {
-  padding-top: 140px;
+  padding-top: 80px;
 }
 
 .about__wrapper {
-  display: flex;
-  gap: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 40px;
+  align-items: center;
+  padding-bottom: 40px;
+  margin-bottom: 40px;
+  position: relative;
 }
 
+.about__wrapper::before {
+  height: 2px;
+  content: "";
+  position: absolute;
+  background-color: var(--color-4);
+  border-radius: var(--radius);
+  width: 20%;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.about h3 {
+  text-transform: uppercase;
+  font-weight: 800;
+  font-family: var(--montserrat-font);
+  font-size: 40px;
+  color: var(--color-4);
+}
+
+.about__location-title {
+  text-align: left;
+  font-size: 30px;
+  text-transform: unset;
+}
+
+.about__location {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 40px;
+}
+
+.about__address {
+  display: flex;
+  gap: 10px;
+}
+
+.about__img-wrapper {
+  border-radius: var(--radius);
+  overflow: hidden;
+  height: 400px;
+  position: relative;
+}
+
+.about__img-wrapper::before {
+  content: "Картинка с места проведения";
+  position: absolute;
+}
+
+.about__map-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about__map {
+  flex: 1;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.about__map iframe {
+  width: 100%;
+  height: 100%;
+}
+/*
 .about__text {
   display: flex;
   flex-direction: column;
