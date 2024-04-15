@@ -89,6 +89,11 @@ document.addEventListener("DOMContentLoaded", () => {
   //   galleryBtnsWrapper.style.display = "none"
   // }
 
+  const stagesRange = document.querySelector(".stages__range");
+  const stagesList = document.querySelector(".stages__list");
+  const stagesItem = document.querySelector(".stages__item");
+  stagesRange.style.width = stagesList.clientWidth - stagesItem.clientWidth + "px";
+
   // Map
 
   // const map = document.querySelector(".about__map iframe");
