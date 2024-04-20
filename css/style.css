@@ -889,6 +889,12 @@ p > span {
   align-items: center;
 }
 
+.partners-sponsors__btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
 /* contacts */
 
 .contacts {
