@@ -235,20 +235,38 @@ document.addEventListener("DOMContentLoaded", () => {
   // })
 });
 
-// const swiper1 = new Swiper('.banner__swiper', {
-//   effect: 'fade',
-//   slidesPerView: 1,
-//   loop: true,
-//   simulateTouch: false,
-//   autoplay: {
-//     delay: 4000,
-//   },
-//   speed: 1000,
-//   pagination: {
-//     el: ".banner__swiper-pagination",
-//     clickable: true,
-//     renderBullet: function (index, className) {
-//       return `<span class="${className}"></span>`;
-//     },
-//   },
-// });
+const refereeSwiper = new Swiper(".referee__swiper", {
+  spaceBetween: 30,
+  slidesPerView: 6,
+  navigation: {
+    nextEl: ".referee .swiper-button-next",
+    prevEl: ".referee .swiper-button-prev",
+  },
+});
+
+const partnersSwiper = new Swiper(".partners__swiper", {
+  spaceBetween: 30,
+  slidesPerView: 6,
+  navigation: {
+    nextEl: ".partners .swiper-button-next",
+    prevEl: ".partners .swiper-button-prev",
+  },
+});
+
+const sponsorsSwiper = new Swiper(".sponsors__swiper", {
+  spaceBetween: 30,
+  slidesPerView: 6,
+  navigation: {
+    nextEl: ".sponsors .swiper-button-next",
+    prevEl: ".sponsors .swiper-button-prev",
+  },
+});
+
+const volunteersSwiper = new Swiper(".volunteers__swiper", {
+  spaceBetween: 30,
+  slidesPerView: 6,
+  navigation: {
+    nextEl: ".volunteers .swiper-button-next",
+    prevEl: ".volunteers .swiper-button-prev",
+  },
+});

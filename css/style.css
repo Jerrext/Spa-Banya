@@ -143,78 +143,6 @@ button {
   box-sizing: border-box;
 }
 
-/* @font-face {
-  font-family: "Montserrat";
-  src: url("../../fonts/Montserrat-SemiBold.eot");
-  src: url("../../fonts/Montserrat-SemiBold.eot?#iefix") format("embedded-opentype"),
-    url("../../fonts/Montserrat-SemiBold.woff2") format("woff2"),
-    url("../../fonts/Montserrat-SemiBold.woff") format("woff"),
-    url("../../fonts/Montserrat-SemiBold.ttf") format("truetype");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Montserrat";
-  src: url("../../fonts/Montserrat-Bold.eot");
-  src: url("../../fonts/Montserrat-Bold.eot?#iefix") format("embedded-opentype"),
-    url("../../fonts/Montserrat-Bold.woff2") format("woff2"),
-    url("../../fonts/Montserrat-Bold.woff") format("woff"),
-    url("../../fonts/Montserrat-Bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Montserrat";
-  src: url("../../fonts/Montserrat-Medium.eot");
-  src: url("../../fonts/Montserrat-Medium.eot?#iefix") format("embedded-opentype"),
-    url("../../fonts/Montserrat-Medium.woff2") format("woff2"),
-    url("../../fonts/Montserrat-Medium.woff") format("woff"),
-    url("../../fonts/Montserrat-Medium.ttf") format("truetype");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Montserrat";
-  src: url("../../fonts/Montserrat-Regular.eot");
-  src: url("../../fonts/Montserrat-Regular.eot?#iefix") format("embedded-opentype"),
-    url("../../fonts/Montserrat-Regular.woff2") format("woff2"),
-    url("../../fonts/Montserrat-Regular.woff") format("woff"),
-    url("../../fonts/Montserrat-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-} */
-
-@font-face {
-  font-family: "Roboto";
-  src: url("../../fonts/Roboto-Light.eot");
-  src: url("../../fonts/Roboto-Light.eot?#iefix") format("embedded-opentype"),
-    url("../../fonts/Roboto-Light.woff2") format("woff2"),
-    url("../../fonts/Roboto-Light.woff") format("woff"),
-    url("../../fonts/Roboto-Light.ttf") format("truetype");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Roboto";
-  src: url("../../fonts/Roboto-Regular.eot");
-  src: url("../../fonts/Roboto-Regular.eot?#iefix") format("embedded-opentype"),
-    url("../../fonts/Roboto-Regular.woff2") format("woff2"),
-    url("../../fonts/Roboto-Regular.woff") format("woff"),
-    url("../../fonts/Roboto-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
 /* --------- */
 
 :root {
@@ -292,7 +220,7 @@ h2 {
   font-weight: 700;
   text-transform: uppercase;
   color: var(--text-color);
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 /*
@@ -325,6 +253,10 @@ p {
   font-size: 18px;
   color: var(--text-color);
   /* line-height: 1.5em; */
+}
+
+p span {
+  font-weight: 500;
 }
 
 svg path {
@@ -585,7 +517,7 @@ p > span {
 .banner__partner-title {
   font-size: 20px;
   font-weight: 600;
-  margin: 60px 0 20px;
+  margin: 40px 0 20px;
 }
 
 .banner .banner__partner {
@@ -622,7 +554,7 @@ p > span {
   transform: translateX(-50%);
 }
 
-.about h3 {
+.about__ev-title {
   text-transform: uppercase;
   font-weight: 800;
   font-family: var(--montserrat-font);
@@ -652,15 +584,9 @@ p > span {
   border-radius: var(--radius);
   overflow: hidden;
   height: 400px;
-  position: relative;
 }
 
-.about__img-wrapper::before {
-  content: "Картинка с места проведения";
-  position: absolute;
-}
-
-.about__map-wrapper {
+/* .about__map-wrapper {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -675,6 +601,35 @@ p > span {
 .about__map iframe {
   width: 100%;
   height: 100%;
+} */
+
+.about__goals-title {
+  font-weight: 700;
+  font-family: var(--montserrat-font);
+  font-size: 30px;
+  color: var(--text-color);
+}
+
+.about__goals {
+}
+
+.about__goals svg {
+  height: 30px;
+  width: 30px;
+  min-width: 30px;
+}
+
+.about__goals-list {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about__goals-item {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
 /* participants */
@@ -709,17 +664,25 @@ p > span {
 }
 
 .achivements__list {
-  max-width: 700px;
-  margin: 0 auto;
+  /* max-width: 700px; */
+  /* margin: 0 auto; */
   display: flex;
-  flex-direction: column;
-  gap: 40px;
+  row-gap: 40px;
+  column-gap: 20px;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; */
 }
 
 .achivements__item {
   display: flex;
   gap: 10px;
   transition: var(--transition);
+  max-width: 650px;
+}
+
+.achivements__item:last-child {
+  max-width: 1000px;
 }
 
 .achivements__item:hover {
@@ -806,8 +769,67 @@ p > span {
 
 /* referee */
 
+.swiper {
+  /* overflow: visible !important; */
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  position: static !important;
+  color: var(--text-color) !important;
+  transform: scale(0.8) translateY(25%);
+}
+
 .referee {
   margin-top: 80px;
+  text-align: center;
+}
+
+.referee__wrapper {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.referee__swiper,
+.volunteers__swiper {
+  width: 90% !important;
+  /* overflow: hidden !important; */
+}
+
+.referee .swiper-slide {
+  /* background: linear-gradient(145deg, #30363d, #161b22); */
+  /* position: relative; */
+  /* color: #fff; */
+  /* width: 500px; */
+  /* transition: var(--transition); */
+}
+
+.referee__img-wrapper {
+  border-radius: var(--radius);
+  overflow: hidden;
+  height: 200px;
+  margin-bottom: 10px;
+  /* background-color: var(--white-color); */
+  border: 2px solid var(--text-color);
+  position: relative;
+}
+
+.referee__img-wrapper img {
+  position: relative;
+}
+
+.referee__img-wrapper svg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+}
+
+.referee__img-wrapper svg path {
+  fill: var(--text-color);
 }
 
 /* laznya */
@@ -823,7 +845,26 @@ p > span {
 
 /* partners */
 
+.partners img,
+.sponsors img {
+  object-fit: contain;
+}
+
 .partners {
+}
+
+.partners__wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.general-partner {
+  margin: 0 auto 40px;
+}
+
+.partners__img-wrapper {
+  height: 150px;
+  width: 150px;
 }
 
 /* sponsors */
@@ -832,16 +873,92 @@ p > span {
   margin-top: 80px;
 }
 
+.sponsors__wrapper {
+  display: flex;
+  align-items: center;
+}
+
 /* volunteers */
 
 .volunteers {
   margin-top: 80px;
 }
 
+.volunteers__wrapper {
+  display: flex;
+  align-items: center;
+}
+
 /* contacts */
 
 .contacts {
-  margin-top: 80px;
+  margin: 80px 0;
+}
+
+.contacts__map {
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.contacts__phone-list {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 30px;
+}
+
+.contacts__phone-item {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 0 20px -10px #000000;
+  background-color: var(--color-1-1);
+  transition: var(--transition);
+  display: flex;
+  gap: 10px;
+  min-height: 150px;
+}
+
+.contacts__phone-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 30px -10px #000000;
+}
+
+.contacts__img-wrapper {
+  height: 100%;
+  width: 150px;
+}
+
+.contacts__text {
+  padding: 15px;
+  flex: 1;
+}
+
+.contacts__phone {
+  font-size: 18px;
+  font-family: var(--roboto-font);
+  color: var(--text-color);
+  margin-bottom: 3px;
+  display: inline-block;
+}
+
+h5 {
+  font-family: var(--roboto-font);
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--text-color);
+  position: relative;
+  margin-bottom: 20px;
+}
+
+h5::before {
+  content: "";
+  position: absolute;
+  height: 2px;
+  background-color: var(--text-color);
+  width: 100%;
+  left: 0;
+  bottom: -10px;
 }
 
 /* footer */
@@ -849,6 +966,20 @@ p > span {
 .footer {
   height: 100px;
   background-color: var(--text-color);
+}
+
+.footer__wrapper {
+  /* text-align: center; */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer p,
+.footer a {
+  color: #a39898;
+  font-size: 14px;
 }
 /*
 popup
