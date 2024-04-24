@@ -677,6 +677,10 @@ p > span {
   url("../images/bun.webp") center no-repeat;
 }
 
+.participants {
+  margin-top: var(--margin-top-2);
+}
+
 .participants,
 .partners-sponsors {
   padding: clamp(40px, 1.25rem + 36px, 60px) 0;
