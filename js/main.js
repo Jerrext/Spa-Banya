@@ -59,6 +59,78 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  //Прокрутка до якорей
+
+  const anchors = document.querySelectorAll('a[href*="#"]');
+
+  for (let anchor of anchors) {
+    anchor.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      const blockID = anchor.getAttribute("href");
+      const block = document.getElementById(blockID.slice(1));
+      const scrollY = block.getBoundingClientRect().y;
+      window.scrollBy({ top: scrollY - 100, behavior: "smooth" });
+      console.log(header.clientHeight);
+    });
+  }
+
+  // Кнопка вверх
+
+  const btnUp = {
+    el: document.querySelector(".btn-up"),
+    scrolling: false,
+    show() {
+      if (
+        this.el.classList.contains("btn-up_hide") &&
+        !this.el.classList.contains("btn-up_hiding")
+      ) {
+        this.el.classList.remove("btn-up_hide");
+        this.el.classList.add("btn-up_hiding");
+        window.setTimeout(() => {
+          this.el.classList.remove("btn-up_hiding");
+        }, 300);
+      }
+    },
+    hide() {
+      if (
+        !this.el.classList.contains("btn-up_hide") &&
+        !this.el.classList.contains("btn-up_hiding")
+      ) {
+        this.el.classList.add("btn-up_hiding");
+        window.setTimeout(() => {
+          this.el.classList.add("btn-up_hide");
+          this.el.classList.remove("btn-up_hiding");
+        }, 300);
+      }
+    },
+    addEventListener() {
+      window.addEventListener("scroll", () => {
+        const scrollY = window.scrollY || document.documentElement.scrollTop;
+        if (this.scrolling && scrollY > 0) {
+          return;
+        }
+        this.scrolling = false;
+        if (scrollY > 400) {
+          this.show();
+        } else {
+          this.hide();
+        }
+      });
+      document.querySelector(".btn-up").onclick = () => {
+        this.scrolling = true;
+        this.hide();
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: "smooth",
+        });
+      };
+    },
+  };
+
+  btnUp.addEventListener();
+
   // Gallery
 
   // const galleryBtnsWrapper = document.querySelector(".gallery__btns-wrapper")
@@ -259,14 +331,5 @@ const sponsorsSwiper = new Swiper(".sponsors__swiper", {
   navigation: {
     nextEl: ".sponsors .swiper-button-next",
     prevEl: ".sponsors .swiper-button-prev",
-  },
-});
-
-const volunteersSwiper = new Swiper(".volunteers__swiper", {
-  spaceBetween: 30,
-  slidesPerView: 6,
-  navigation: {
-    nextEl: ".volunteers .swiper-button-next",
-    prevEl: ".volunteers .swiper-button-prev",
   },
 });
