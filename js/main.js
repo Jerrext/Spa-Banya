@@ -71,7 +71,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const block = document.getElementById(blockID.slice(1));
       const scrollY = block.getBoundingClientRect().y;
       window.scrollBy({ top: scrollY - 100, behavior: "smooth" });
-      console.log(header.clientHeight);
     });
   }
 
@@ -131,40 +130,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
   btnUp.addEventListener();
 
-  // Gallery
-
-  // const galleryBtnsWrapper = document.querySelector(".gallery__btns-wrapper")
-  // const galleryBtnMore = document.querySelector(".gallery__btn-more")
-  // const galleryBtnHide = document.querySelector(".gallery__btn-hide")
-  // const galleryGrid = document.querySelectorAll(".gallery__grid")
-
-  // let count1 = 1
-  // if (count1 < galleryGrid.length) {
-  //   galleryBtnMore.addEventListener('click', () => {
-  //     galleryGrid[count1].style.display = "grid";
-  //     count1++;
-  //     if (galleryGrid.length === count1) {
-  //       galleryBtnMore.style.display = "none"
-  //       galleryBtnHide.style.display = "block"
-  //     }
-  //   });
-
-  //   galleryBtnHide.addEventListener('click', () => {
-  //     galleryGrid.forEach(item => {
-  //       item.style.display = ""
-  //     })
-  //     galleryBtnMore.style.display = ""
-  //     galleryBtnHide.style.display = ""
-  //     count1 = 1
-  //   })
-  // } else {
-  //   galleryBtnsWrapper.style.display = "none"
-  // }
+  // Stages
 
   const stagesRange = document.querySelector(".stages__range");
   const stagesList = document.querySelector(".stages__list");
   const stagesItem = document.querySelector(".stages__item");
-  stagesRange.style.width = stagesList.clientWidth - stagesItem.clientWidth + "px";
+
+  const stagesResizeHandler = () => {
+    if (window.innerWidth > 700) {
+      stagesRange.style.width = stagesList.clientWidth - stagesItem.clientWidth + "px";
+      stagesRange.style.height = "unset";
+    } else {
+      stagesRange.style.height =
+        stagesList.clientHeight - stagesList.lastElementChild.clientHeight + 15 + "px";
+      stagesRange.style.width = "unset";
+    }
+  };
+
+  stagesResizeHandler();
+
+  window.addEventListener("resize", stagesResizeHandler);
 
   // Map
 
@@ -264,72 +249,136 @@ document.addEventListener("DOMContentLoaded", () => {
   // closeBtnView.addEventListener("click", closeViewWindow)
   // overlayView.addEventListener("click", closeViewWindow)
 
-  // // Burger
+  // Burger
 
-  // const burger = document.querySelector(".burger")
+  const burger = document.querySelector(".burger");
 
-  // const burgerMenuClose = () => {
-  //   burger.style.left = ""
+  let isOpen = false
 
-  //   setTimeout(() => {
-  //     burger.style.display = ""
-  //   }, 500);
+  const burgerMenuClose = () => {
+    burger.style.left = "";
 
-  //   overflowToggle(true)
-  // }
+    setTimeout(() => {
+      burger.style.display = "";
+      isOpen = false
+    }, 500);
 
-  // const burgerMenuOpen = () => {
-  //   window.history.pushState({menu: 1}, "menu","#menu")
+    overflowToggle(true);
+  };
 
-  //   burger.style.display = "flex"
+  const burgerMenuOpen = () => {
+    window.history.pushState({ menu: 1 }, "menu", "#menu");
 
-  //   setTimeout(() => {
-  //     burger.style.left = "0"
-  //   }, 0);
+    burger.style.display = "flex";
 
-  //   overflowToggle(false)
-  // }
+    setTimeout(() => {
+      burger.style.left = "0";
+      isOpen = true
+    }, 0);
 
-  // window.addEventListener('resize',(e) => {
-  //   const width = document.body.clientWidth;
-  //   if (width > 800) {
-  //     burgerMenuClose()
-  //   }
-  // });
+    overflowToggle(false);
+  };
 
-  // document.querySelector(".header__burger-btn").addEventListener("click", burgerMenuOpen)
-  // document.querySelector(".header__burger-close-btn").addEventListener("click", () => {
-  //   burgerMenuClose()
-  //   window.history.back()
-  // })
-  // document.querySelectorAll(".burger__nav-link").forEach(item => {
-  //   item.addEventListener("click", burgerMenuClose)
-  // })
+  window.addEventListener("resize", (e) => {
+    const width = document.body.clientWidth;
+    if (width > 900) {
+      burgerMenuClose();
+    }
+  });
+
+  document.querySelector(".header__burger-btn").addEventListener("click", () => {
+    if (!isOpen) {
+      burgerMenuOpen()
+    }
+  });
+  document.querySelector(".header__burger-close-btn").addEventListener("click", () => {
+    if (isOpen) {
+      burgerMenuClose();
+      window.history.back();
+    }
+  });
+
+  document.querySelectorAll(".burger__nav-link").forEach((item) => {
+    item.addEventListener("click", burgerMenuClose);
+  });
 });
 
 const refereeSwiper = new Swiper(".referee__swiper", {
-  spaceBetween: 30,
+  spaceBetween: 20,
   slidesPerView: 6,
   navigation: {
     nextEl: ".referee .swiper-button-next",
     prevEl: ".referee .swiper-button-prev",
   },
+  // simulateTouch: true,
+  breakpoints: {
+    0: {
+      slidesPerView: 2,
+    },
+    600: {
+      slidesPerView: 3,
+    },
+    900: {
+      slidesPerView: 4,
+      spaceBetween: 30,
+    },
+    1200: {
+      slidesPerView: 5,
+    },
+    1500: {
+      slidesPerView: 6,
+    },
+  },
 });
 
 const partnersSwiper = new Swiper(".partners__swiper", {
-  spaceBetween: 30,
-  slidesPerView: 6,
+  spaceBetween: 50,
+  slidesPerView: 1,
   navigation: {
     nextEl: ".partners .swiper-button-next",
     prevEl: ".partners .swiper-button-prev",
   },
+  breakpoints: {
+    400: {
+      slidesPerView: 2,
+    },
+    600: {
+      slidesPerView: 3,
+    },
+    900: {
+      slidesPerView: 4,
+    },
+    1200: {
+      slidesPerView: 5,
+    },
+    1500: {
+      slidesPerView: 6,
+    },
+  },
 });
 
 const sponsorsSwiper = new Swiper(".sponsors__swiper", {
-  spaceBetween: 30,
-  slidesPerView: 6,
+  spaceBetween: 50,
+  slidesPerView: 1,
   navigation: {
     nextEl: ".sponsors .swiper-button-next",
     prevEl: ".sponsors .swiper-button-prev",
+  },
+  breakpoints: {
+    400: {
+      slidesPerView: 2,
+    },
+    600: {
+      slidesPerView: 3,
+    },
+    900: {
+      slidesPerView: 4,
+    },
+    1200: {
+      slidesPerView: 5,
+    },
+    1500: {
+      slidesPerView: 6,
+    },
   },
 });
