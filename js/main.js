@@ -8,43 +8,43 @@ const overflowToggle = (arg) => {
   }
 };
 
-const popUpOpen = (window, wrapper, overlay, closeBtn, delay) => {
-  overflowToggle(false);
-  window.style.display = "block";
+// const popUpOpen = (window, wrapper, overlay, closeBtn, delay) => {
+//   overflowToggle(false);
+//   window.style.display = "block";
 
-  setTimeout(() => {
-    overlay.style.opacity = ".8";
-    wrapper.style.opacity = "1";
-    wrapper.style.top = "50%";
-    closeBtn.style.opacity = "0.5";
-  }, 0);
+//   setTimeout(() => {
+//     overlay.style.opacity = ".8";
+//     wrapper.style.opacity = "1";
+//     wrapper.style.top = "50%";
+//     closeBtn.style.opacity = "0.5";
+//   }, 0);
 
-  if (delay) {
-    setTimeout(() => {
-      popUpClose(window, wrapper, overlay);
-    }, delay);
-  }
-};
+//   if (delay) {
+//     setTimeout(() => {
+//       popUpClose(window, wrapper, overlay);
+//     }, delay);
+//   }
+// };
 
-const popUpClose = (window, wrapper, overlay, closeBtn) => {
-  setTimeout(() => {
-    window.style.display = "";
-  }, 300);
-  closeBtn.style.opacity = "";
-  overlay.style.opacity = "";
-  wrapper.style.opacity = "";
-  wrapper.style.top = "";
+// const popUpClose = (window, wrapper, overlay, closeBtn) => {
+//   setTimeout(() => {
+//     window.style.display = "";
+//   }, 300);
+//   closeBtn.style.opacity = "";
+//   overlay.style.opacity = "";
+//   wrapper.style.opacity = "";
+//   wrapper.style.top = "";
 
-  overflowToggle(true);
-};
+//   overflowToggle(true);
+// };
 
-const setPopUpVisibility = (visibility, window, wrapper, overlay, closeBtn, delay) => {
-  if (visibility) {
-    popUpOpen(window, wrapper, overlay, closeBtn, delay);
-  } else {
-    popUpClose(window, wrapper, overlay, closeBtn);
-  }
-};
+// const setPopUpVisibility = (visibility, window, wrapper, overlay, closeBtn, delay) => {
+//   if (visibility) {
+//     popUpOpen(window, wrapper, overlay, closeBtn, delay);
+//   } else {
+//     popUpClose(window, wrapper, overlay, closeBtn);
+//   }
+// };
 
 document.addEventListener("DOMContentLoaded", () => {
   // Header
@@ -80,10 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
     el: document.querySelector(".btn-up"),
     scrolling: false,
     show() {
-      if (
-        this.el.classList.contains("btn-up_hide") &&
-        !this.el.classList.contains("btn-up_hiding")
-      ) {
+      if (this.el.classList.contains("btn-up_hide") && !this.el.classList.contains("btn-up_hiding")) {
         this.el.classList.remove("btn-up_hide");
         this.el.classList.add("btn-up_hiding");
         window.setTimeout(() => {
@@ -92,10 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     },
     hide() {
-      if (
-        !this.el.classList.contains("btn-up_hide") &&
-        !this.el.classList.contains("btn-up_hiding")
-      ) {
+      if (!this.el.classList.contains("btn-up_hide") && !this.el.classList.contains("btn-up_hiding")) {
         this.el.classList.add("btn-up_hiding");
         window.setTimeout(() => {
           this.el.classList.add("btn-up_hide");
@@ -141,8 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
       stagesRange.style.width = stagesList.clientWidth - stagesItem.clientWidth + "px";
       stagesRange.style.height = "unset";
     } else {
-      stagesRange.style.height =
-        stagesList.clientHeight - stagesList.lastElementChild.clientHeight + 15 + "px";
+      stagesRange.style.height = stagesList.clientHeight - stagesList.lastElementChild.clientHeight + 15 + "px";
       stagesRange.style.width = "unset";
     }
   };
@@ -253,14 +246,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const burger = document.querySelector(".burger");
 
-  let isOpen = false
+  let isOpen = false;
 
   const burgerMenuClose = () => {
     burger.style.left = "";
 
     setTimeout(() => {
       burger.style.display = "";
-      isOpen = false
+      isOpen = false;
     }, 500);
 
     overflowToggle(true);
@@ -273,7 +266,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     setTimeout(() => {
       burger.style.left = "0";
-      isOpen = true
+      isOpen = true;
     }, 0);
 
     overflowToggle(false);
@@ -288,7 +281,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelector(".header__burger-btn").addEventListener("click", () => {
     if (!isOpen) {
-      burgerMenuOpen()
+      burgerMenuOpen();
     }
   });
   document.querySelector(".header__burger-close-btn").addEventListener("click", () => {
@@ -381,4 +374,35 @@ const sponsorsSwiper = new Swiper(".sponsors__swiper", {
       slidesPerView: 6,
     },
   },
+});
+
+const laznyaSwiper = new Swiper(".laznya__swiper", {
+  spaceBetween: 20,
+  slidesPerView: 1,
+  // navigation: {
+  //   nextEl: ".laznya .swiper-button-next",
+  //   prevEl: ".laznya .swiper-button-prev",
+  // },
+  loop: true,
+  pagination: {
+    el: ".laznya .swiper-pagination",
+    clickable: true,
+  },
+  // breakpoints: {
+  //   400: {
+  //     slidesPerView: 2,
+  //   },
+  //   600: {
+  //     slidesPerView: 3,
+  //   },
+  //   900: {
+  //     slidesPerView: 4,
+  //   },
+  //   1200: {
+  //     slidesPerView: 5,
+  //   },
+  //   1500: {
+  //     slidesPerView: 6,
+  //   },
+  // },
 });
