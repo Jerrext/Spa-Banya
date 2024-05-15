@@ -80,7 +80,10 @@ document.addEventListener("DOMContentLoaded", () => {
     el: document.querySelector(".btn-up"),
     scrolling: false,
     show() {
-      if (this.el.classList.contains("btn-up_hide") && !this.el.classList.contains("btn-up_hiding")) {
+      if (
+        this.el.classList.contains("btn-up_hide") &&
+        !this.el.classList.contains("btn-up_hiding")
+      ) {
         this.el.classList.remove("btn-up_hide");
         this.el.classList.add("btn-up_hiding");
         window.setTimeout(() => {
@@ -89,7 +92,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     },
     hide() {
-      if (!this.el.classList.contains("btn-up_hide") && !this.el.classList.contains("btn-up_hiding")) {
+      if (
+        !this.el.classList.contains("btn-up_hide") &&
+        !this.el.classList.contains("btn-up_hiding")
+      ) {
         this.el.classList.add("btn-up_hiding");
         window.setTimeout(() => {
           this.el.classList.add("btn-up_hide");
@@ -130,13 +136,24 @@ document.addEventListener("DOMContentLoaded", () => {
   const stagesList = document.querySelector(".stages__list");
   const stagesItem = document.querySelector(".stages__item");
 
+  const participationRange = document.querySelector(".participation__range");
+  const participationList = document.querySelector(".participation__list");
+  const participationItem = document.querySelector(".participation__item");
+
   const stagesResizeHandler = () => {
     if (window.innerWidth > 700) {
       stagesRange.style.width = stagesList.clientWidth - stagesItem.clientWidth + "px";
       stagesRange.style.height = "unset";
+      participationRange.style.width =
+        participationList.clientWidth - participationItem.clientWidth + "px";
+      participationRange.style.height = "unset";
     } else {
-      stagesRange.style.height = stagesList.clientHeight - stagesList.lastElementChild.clientHeight + 15 + "px";
+      stagesRange.style.height =
+        stagesList.clientHeight - stagesList.lastElementChild.clientHeight + 15 + "px";
       stagesRange.style.width = "unset";
+      participationRange.style.width =
+        participationList.clientWidth - participationItem.clientWidth + 15 + "px";
+      participationRange.style.width = "unset";
     }
   };
 
