@@ -252,7 +252,8 @@ img {
   height: 100%;
 }
 
-p {
+p,
+.participants__requirements-link {
   font-family: var(--roboto-font);
   font-weight: 400;
   font-size: var(--font-size-responsive);
