@@ -80,10 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
     el: document.querySelector(".btn-up"),
     scrolling: false,
     show() {
-      if (
-        this.el.classList.contains("btn-up_hide") &&
-        !this.el.classList.contains("btn-up_hiding")
-      ) {
+      if (this.el.classList.contains("btn-up_hide") && !this.el.classList.contains("btn-up_hiding")) {
         this.el.classList.remove("btn-up_hide");
         this.el.classList.add("btn-up_hiding");
         window.setTimeout(() => {
@@ -92,10 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     },
     hide() {
-      if (
-        !this.el.classList.contains("btn-up_hide") &&
-        !this.el.classList.contains("btn-up_hiding")
-      ) {
+      if (!this.el.classList.contains("btn-up_hide") && !this.el.classList.contains("btn-up_hiding")) {
         this.el.classList.add("btn-up_hiding");
         window.setTimeout(() => {
           this.el.classList.add("btn-up_hide");
@@ -144,15 +138,16 @@ document.addEventListener("DOMContentLoaded", () => {
     if (window.innerWidth > 700) {
       stagesRange.style.width = stagesList.clientWidth - stagesItem.clientWidth + "px";
       stagesRange.style.height = "unset";
-      participationRange.style.width =
-        participationList.clientWidth - participationItem.clientWidth + "px";
+    } else {
+      stagesRange.style.height = stagesList.clientHeight - stagesList.lastElementChild.clientHeight + 15 + "px";
+      stagesRange.style.width = "unset";
+    }
+
+    if (window.innerWidth > 1100) {
+      participationRange.style.width = participationList.clientWidth - participationItem.clientWidth + "px";
       participationRange.style.height = "unset";
     } else {
-      stagesRange.style.height =
-        stagesList.clientHeight - stagesList.lastElementChild.clientHeight + 15 + "px";
-      stagesRange.style.width = "unset";
-      participationRange.style.width =
-        participationList.clientWidth - participationItem.clientWidth + 15 + "px";
+      participationRange.style.width = participationList.clientWidth - participationItem.clientWidth + 15 + "px";
       participationRange.style.width = "unset";
     }
   };
@@ -314,23 +309,27 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const refereeSwiper = new Swiper(".referee__swiper", {
-  spaceBetween: 20,
+  spaceBetween: 25,
   slidesPerView: 6,
   navigation: {
     nextEl: ".referee .swiper-button-next",
     prevEl: ".referee .swiper-button-prev",
   },
-  // simulateTouch: true,
+  simulateTouch: true,
   breakpoints: {
     0: {
+      spaceBetween: 20,
+      slidesPerView: 1,
+    },
+    450: {
       slidesPerView: 2,
     },
     600: {
       slidesPerView: 3,
     },
-    900: {
+    960: {
       slidesPerView: 4,
-      spaceBetween: 30,
+      spaceBetween: 25,
     },
     1200: {
       slidesPerView: 5,
@@ -342,55 +341,63 @@ const refereeSwiper = new Swiper(".referee__swiper", {
 });
 
 const partnersSwiper = new Swiper(".partners__swiper", {
-  spaceBetween: 50,
+  spaceBetween: 30,
   slidesPerView: 1,
   navigation: {
     nextEl: ".partners .swiper-button-next",
     prevEl: ".partners .swiper-button-prev",
   },
+  simulateTouch: true,
   breakpoints: {
-    400: {
+    600: {
       slidesPerView: 2,
     },
-    600: {
+    900: {
       slidesPerView: 3,
     },
-    900: {
+    1100: {
       slidesPerView: 4,
     },
-    1200: {
+    1300: {
       slidesPerView: 5,
     },
-    1500: {
-      slidesPerView: 6,
-    },
   },
+  autoplay: {
+    delay: 4000,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: true,
+  },
+  loop: true,
 });
 
 const sponsorsSwiper = new Swiper(".sponsors__swiper", {
-  spaceBetween: 50,
+  spaceBetween: 30,
   slidesPerView: 1,
   navigation: {
     nextEl: ".sponsors .swiper-button-next",
     prevEl: ".sponsors .swiper-button-prev",
   },
+  simulateTouch: true,
   breakpoints: {
-    400: {
+    600: {
       slidesPerView: 2,
     },
-    600: {
+    900: {
       slidesPerView: 3,
     },
-    900: {
+    1100: {
       slidesPerView: 4,
     },
-    1200: {
+    1300: {
       slidesPerView: 5,
     },
-    1500: {
-      slidesPerView: 6,
-    },
   },
+  autoplay: {
+    delay: 4000,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: true,
+  },
+  loop: true,
 });
 
 const laznyaSwiper = new Swiper(".laznya__swiper", {
@@ -401,25 +408,9 @@ const laznyaSwiper = new Swiper(".laznya__swiper", {
   //   prevEl: ".laznya .swiper-button-prev",
   // },
   loop: true,
+  simulateTouch: true,
   pagination: {
     el: ".laznya .swiper-pagination",
     clickable: true,
   },
-  // breakpoints: {
-  //   400: {
-  //     slidesPerView: 2,
-  //   },
-  //   600: {
-  //     slidesPerView: 3,
-  //   },
-  //   900: {
-  //     slidesPerView: 4,
-  //   },
-  //   1200: {
-  //     slidesPerView: 5,
-  //   },
-  //   1500: {
-  //     slidesPerView: 6,
-  //   },
-  // },
 });
